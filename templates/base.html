@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Metsatöö kontroll</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav>
+    <a href="{{ url_for('index') }}">Koond</a>
+    <a href="{{ url_for('forwarder') }}">Vedukamehe sisestus</a>
+    <a href="{{ url_for('import_prd') }}">PRD import</a>
+    <a href="{{ url_for('entries') }}">Kanded</a>
+    <a href="{{ url_for('driver_report') }}">Juhi raport</a>
+    <a href="{{ url_for('export_excellent') }}">Excellent eksport</a>
+  </nav>
+  <main>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

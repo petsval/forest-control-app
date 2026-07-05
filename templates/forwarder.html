@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="phone-card">
+<h1>Vedukamehe sisestus</h1>
+<p class="muted">Juht ei näe harvesteri kogust. Pärast saatmist näeb ainult kinnitust.</p>
+<form method="post">
+  <label>Juht</label>
+  <select name="driver_id" required>
+    {% for d in drivers %}<option value="{{ d.id }}">{{ d.name }}{% if d.machine %} — {{ d.machine }}{% endif %}</option>{% endfor %}
+  </select>
+  <label>Lank</label>
+  <select name="stand_id" required>
+    {% for s in stands %}<option value="{{ s.id }}">{{ s.code }}{% if s.location %} — {{ s.location }}{% endif %}</option>{% endfor %}
+  </select>
+  <label>Sortiment</label>
+  <select name="assortment_id" required>
+    {% for a in assortments %}<option value="{{ a.id }}">{{ a.name }}</option>{% endfor %}
+  </select>
+  <label>Vahetus</label>
+  <select name="shift">
+    <option value="päev">Päev</option><option value="öö">Öö</option><option value="muu">Muu</option>
+  </select>
+  <label>Veetud kogus, tm</label>
+  <input name="quantity" inputmode="decimal" placeholder="nt 42,5" required>
+  <label>Koormate arv</label>
+  <input name="loads" inputmode="numeric" placeholder="nt 5">
+  <label>Märkus</label>
+  <textarea name="note" rows="2" placeholder="vajadusel"></textarea>
+  <button type="submit">Saada</button>
+</form>
+</div>
+{% endblock %}

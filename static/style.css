@@ -1,0 +1,32 @@
+:root { font-family: Arial, sans-serif; color: #1b1b1b; }
+body { margin: 0; background: #f5f7f6; }
+nav { display: flex; gap: 10px; flex-wrap: wrap; padding: 14px; background: #183526; }
+nav a { color: white; text-decoration: none; padding: 8px 10px; border-radius: 8px; }
+nav a:hover { background: rgba(255,255,255,.15); }
+main { max-width: 1100px; margin: 0 auto; padding: 22px; }
+h1 { margin-top: 0; }
+table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+th, td { padding: 10px; border-bottom: 1px solid #e6e6e6; text-align: left; }
+th { background: #eef2ef; }
+.flash { padding: 12px; border-radius: 10px; margin-bottom: 14px; }
+.flash.success { background: #dff4e5; }
+.flash.error { background: #ffe2e2; }
+.status-ületus { background: #fff0f0; }
+.status-prd-puudub { background: #fff8df; }
+.status-ok { background: #f2fff4; }
+.status-jääk-langil { background: #f5f7ff; }
+.phone-card { max-width: 470px; margin: 0 auto; background: white; padding: 20px; border-radius: 18px; box-shadow: 0 2px 18px rgba(0,0,0,.10); }
+label { display: block; font-weight: bold; margin-top: 14px; }
+input, select, textarea { width: 100%; box-sizing: border-box; font-size: 18px; padding: 13px; margin-top: 6px; border: 1px solid #cbd5cf; border-radius: 12px; }
+button, .button { display: inline-block; margin-top: 18px; background: #1d6b45; color: white; border: 0; padding: 14px 18px; border-radius: 12px; font-size: 18px; text-decoration: none; cursor: pointer; }
+button:hover, .button:hover { background: #155236; }
+.muted { color: #59645e; }
+.panel { background: white; padding: 18px; border-radius: 14px; }
+pre { background: #122018; color: #e7f8ec; padding: 16px; border-radius: 12px; overflow-x: auto; }
+@media (max-width: 700px) { main { padding: 12px; } nav { font-size: 14px; } table { font-size: 13px; } th,td { padding: 7px; } }
+
+.summary-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin: 14px 0 20px; }
+.summary-card { background: white; padding: 16px; border-radius: 14px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+.summary-card span { display: block; color: #59645e; font-size: 14px; margin-bottom: 6px; }
+.summary-card strong { font-size: 24px; }
+td a { color: #155236; }

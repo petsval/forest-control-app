@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Juhi põhine kõrvalekalde raport</h1>
+<table>
+<thead><tr><th>Juht</th><th>Kandeid</th><th>Kogus kokku</th><th>Ületusega kandeid</th><th>Ületus kokku</th></tr></thead>
+<tbody>
+{% for r in rows %}
+<tr><td>{{ r.driver }}</td><td>{{ r.entries }}</td><td>{{ '%.3f'|format(r.total_qty or 0) }}</td><td>{{ r.overage_entries }}</td><td>{{ '%.3f'|format(r.overage_total or 0) }}</td></tr>
+{% endfor %}
+</tbody></table>
+<h2>Probleemsed kanded</h2>
+<table>
+<thead><tr><th>Aeg</th><th>Juht</th><th>Lank</th><th>Sortiment</th><th>Sisestus</th><th>Jääk enne</th><th>Ületus</th><th>Staatus</th></tr></thead>
+<tbody>
+{% for r in details %}
+<tr class="status-{{ r.status|replace(' ', '-')|lower }}"><td>{{ r.created_at }}</td><td>{{ r.driver }}</td><td>{{ r.stand_code }}</td><td>{{ r.assortment }}</td><td>{{ '%.3f'|format(r.quantity) }}</td><td>{{ '%.3f'|format(r.remaining_before or 0) }}</td><td>{{ '%.3f'|format(r.overage_amount or 0) }}</td><td>{{ r.status }}</td></tr>
+{% endfor %}
+</tbody></table>
+{% endblock %}
