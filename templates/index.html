@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Langi põhine koond</h1>
+<p>Siin näeb kontor harvesteri PRD kogust, vedukameeste sisestust ja vahet.</p>
+<p><a class="button" href="{{ url_for('seed_demo') }}">Lisa demo PRD kogus</a></p>
+<table>
+  <thead><tr><th>Klient</th><th>Lank</th><th>Sortiment</th><th>Harvester</th><th>Vedukid</th><th>Vahe</th><th>Staatus</th></tr></thead>
+  <tbody>
+  {% for r in rows %}
+    <tr class="status-{{ r.status|replace(' ', '-')|lower }}">
+      <td>{{ r.client or '' }}</td><td>{{ r.stand_code }}</td><td>{{ r.assortment }}</td>
+      <td>{{ '%.3f'|format(r.harvester_total) }}</td><td>{{ '%.3f'|format(r.forwarder_total) }}</td><td>{{ '%.3f'|format(r.diff) }}</td><td><strong>{{ r.status }}</strong></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
