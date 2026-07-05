@@ -1,1 +1,0 @@
-# Väliseid sõltuvusi pole. Vajalik Python 3.10+.
